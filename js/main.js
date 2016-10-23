@@ -9,9 +9,10 @@ var HangMan = {
 		newWord: '',
 		scoring: {
 			current: 0,
-			max: 8,
+			max: 6,
 			currentWordBuild: ''
 		},
+		livesLeftColours: ['379114','3b7027','707a44','7a6849','8c3333','a81f1f'],
 		elements: {
 			startButton: document.getElementById("start-button"),
 			wordHolder: document.getElementById("word-holder"),
@@ -19,7 +20,9 @@ var HangMan = {
 			availableLettersHolder: document.getElementById("available-letters"),
 			availableLNumbersHolder: document.getElementById("available-numbers"),
 			hangmanImage: document.getElementById("hangman-image"),
-			userFeedback: document.getElementsByClassName("user-feedback")[0]
+			userFeedback: document.getElementsByClassName("user-feedback")[0],
+			livesLeftContainer: document.getElementById("lives-left"),
+			livesLeft: document.getElementById("lives-amount")
 		}
 	},
 
@@ -45,7 +48,12 @@ var HangMan = {
 		//resetting data/dom
 		HangMan.reset();
 
+		s.elements.startButton.innerHTML = "Reset game";
+		s.elements.livesLeft.innerHTML = s.scoring.max;
 	    s.newWord = s.dictionary[Math.floor(Math.random() * s.dictionary.length) + 0];
+
+	    s.elements.livesLeftContainer.style.display = "inline";
+	    s.elements.livesLeftContainer.style.color = "#" + s.livesLeftColours[s.scoring.current];
 
 	    s.elements.wordHolder.innerHTML = "";
 	    s.elements.availableLettersHolder.style.display='block';
@@ -153,6 +161,12 @@ var HangMan = {
 			}
 		} else {
 			s.scoring.current ++;
+
+			//update the lives left
+			s.elements.livesLeft.innerHTML = s.scoring.max - s.scoring.current;
+			//set the colour
+			s.elements.livesLeftContainer.style.color = "#" + s.livesLeftColours[s.scoring.current];
+
 			HangMan.updateHangmanImage(s.scoring.current);
 		}
 		

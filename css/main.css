@@ -137,3 +137,8 @@ html {
 	display: block;
 }
 
+#lives-left {
+	display: none;
+	font-weight: bold;
+}
+
