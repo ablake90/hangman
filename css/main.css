@@ -8,12 +8,15 @@ html {
 
 .user-feedback {
 	color: #fff;
-	position: absolute;
-	top: 198px;
-	left: 12px;
-	font-size: 40px;
-	border-radius: 5px;
-	padding: 20px 97px;
+    position: absolute;
+    top: 200px;
+    left: 12px;
+    font-size: 26px;
+    border-radius: 5px;
+    padding: 37px 0;
+    text-align: center;
+    opacity: 0.93;
+    width: 365px;
 }
 
 .user-feedback.green {
