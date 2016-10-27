@@ -1,5 +1,3 @@
-
-
 var HangMan = {
 
 	settings: {
@@ -37,7 +35,6 @@ var HangMan = {
 
     renderUserFeedback: function(text,cssClass,state) {
     	//reset
-    	s.elements.userFeedback.className="user-feedback";
     	s.elements.userFeedback.innerHTML = text
 		s.elements.userFeedback.style.display="block";
 		s.elements.userFeedback.className += ' ' + cssClass;
@@ -72,7 +69,6 @@ var HangMan = {
 	    	var innerText = document.createTextNode(s.newWord[i]);
 
 	    	elemText.appendChild(innerText);
-
 	    	s.elements.wordHolder.appendChild(elem);  
 	    }
 
@@ -87,7 +83,6 @@ var HangMan = {
 	    	//add event listener to the elem
 	    	//on click, do what the form does
 	    	elem.onclick = function() { HangMan.handleSubmitLetter(event) };
-
 	    	s.elements.availableLettersHolder.appendChild(elem);  
 	    }
 
@@ -102,12 +97,9 @@ var HangMan = {
 	    	//add event listener to the elem
 	    	//on click, do what the form does
 	    	elem.onclick = function() { HangMan.handleSubmitLetter(event) };
-
 	    	s.elements.availableLNumbersHolder.appendChild(elem);  
 	    }
-
 	},
-
 
 	reset: function() {
 
@@ -128,15 +120,15 @@ var HangMan = {
 		}
 		var hangmanImage = document.getElementById("hangman-image-element");
 		hangmanImage.src = "images/hangman0.png";
-
+        
 	},
 
 	handleSubmitLetter: function(event) {
 
 		event.preventDefault();
 
-		var enteredLetter = event.target.id//document.getElementById("entered-letter").value;
-
+		var enteredLetter = event.target.id
+        
 		if (s.availableLetters.indexOf(enteredLetter) > -1) {
 			var letterToRemove = s.availableLetters.indexOf(enteredLetter);
 			s.availableLetters.splice(letterToRemove,1);
@@ -147,7 +139,6 @@ var HangMan = {
 			s.availableNumbers.splice(letterToRemove,1);
 			HangMan.reRenderAvailableWords(enteredLetter);
 		} 
-
 
 		var indices = [];
 		for (var i = 0; i < s.newWord.length; i++) {
@@ -197,7 +188,6 @@ var HangMan = {
 			for (var i = 0; i < document.getElementsByClassName('available-number').length; i++) {
 				document.getElementsByClassName('available-number')[i].onclick = '';
 			}
-			
 		}
 	},
 
@@ -231,4 +221,3 @@ var HangMan = {
   }
 
 HangMan.init();
-

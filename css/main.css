@@ -1,9 +1,5 @@
 html {
-	font-family: Tahoma;
-}
-
-.hangman-container {
-
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .user-feedback {
@@ -111,8 +107,6 @@ html {
     border: 1px dotted grey;
 }
 
-
-
 #available-letters .letter-used, #available-numbers .letter-used {
 	background: #5c5d60;
 	color: #e5e5e5;
@@ -122,8 +116,6 @@ html {
 #submit-letter {
 	display: none;
 }
-
-
 
 #hangman-image {
 	display: none;
@@ -144,4 +136,3 @@ html {
 	display: none;
 	font-weight: bold;
 }
-
