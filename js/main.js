@@ -113,6 +113,7 @@ var HangMan = {
 		//resetting the dom
 		s.elements.availableLettersHolder.innerHTML = "";
 		s.elements.availableLNumbersHolder.innerHTML = "";
+		s.elements.userFeedback.className="user-feedback";
 		s.elements.userFeedback.style.display="none";
 		var hangmanPieces = document.getElementsByClassName("hangman-piece");
 		for (var i = 0; i < hangmanPieces.length; i++) {
